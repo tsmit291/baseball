@@ -2,20 +2,20 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
 
-var Batters = function(){
-  return knex('batters');
+var LeagueAvg = function(){
+  return knex('leagueAvg');
 }
 
-//get all batters
+//get all league averages
 router.get('/', function(req, res, next) {
-  Batters().select().then(function(payload) {
+  LeagueAvg().select().then(function(payload) {
     res.json(payload);
   });
 });
 
-//get one batter
+//get one league average
 router.get('/:id', function(req, res, next) {
-  Batters().where({id: req.params.id}).then(function(payload) {
+  LeagueAvg().where({id: req.params.id}).then(function(payload) {
     res.json(payload);
   });
 });

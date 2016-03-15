@@ -2,20 +2,20 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
 
-var Batters = function(){
-  return knex('batters');
+var Pitchers = function(){
+  return knex('pitchers');
 }
 
-//get all batters
+//get all pitchers
 router.get('/', function(req, res, next) {
-  Batters().select().then(function(payload) {
+  Pitchers().select().then(function(payload) {
     res.json(payload);
   });
 });
 
-//get one batter
+//get one pitcher
 router.get('/:id', function(req, res, next) {
-  Batters().where({id: req.params.id}).then(function(payload) {
+  Pitchers().where({id: req.params.id}).then(function(payload) {
     res.json(payload);
   });
 });
