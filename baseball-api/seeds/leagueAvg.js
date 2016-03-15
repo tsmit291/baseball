@@ -1,12 +1,40 @@
-
 exports.seed = function(knex, Promise) {
   return Promise.join(
     // Deletes ALL existing entries
-    knex('table_name').del(), 
+    knex('leagueAvg').del(),
 
     // Inserts seed entries
-    knex('table_name').insert({id: 1, colName: 'rowValue'}),
-    knex('table_name').insert({id: 2, colName: 'rowValue2'}),
-    knex('table_name').insert({id: 3, colName: 'rowValue3'})
-  );
+    knex('leagueAvg').insert(
+      {
+        category: 'vintage',
+        AB: 66497,
+        H: 17609,
+        2B: 2611,
+        3B: 978,
+        HR: 448,
+        SO: 5784,
+        BB: 5286
+      }),
+    knex('leagueAvg').insert(
+      {
+        category: 'classic',
+        AB: 99534,
+        H: 25847,
+        2B: 4212,
+        3B: 843,
+        HR: 2059,
+        SO: 13288,
+        BB: 973
+      }),
+    knex('leagueAvg').insert(
+      {
+        category: 'modern',
+        AB: 153485,
+        H: 40150,
+        2B: 7606,
+        3B: 897,
+        HR: 4286,
+        SO: 28313,
+        BB: 14722
+      })
 };
